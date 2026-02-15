@@ -1,0 +1,29 @@
+{
+  "name": "feature-flag-engine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "node src/app.js",
+  "test": "jest"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avishek4redacid/feature-flag-engine.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/avishek4redacid/feature-flag-engine/issues"
+  },
+  "homepage": "https://github.com/avishek4redacid/feature-flag-engine#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
