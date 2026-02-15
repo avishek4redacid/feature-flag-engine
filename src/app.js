@@ -10,6 +10,11 @@ const featureRepo = new FeatureRepository();
 const overrideRepo = new OverrideRepository();
 const engine = new FeatureFlagEngine(featureRepo, overrideRepo);
 
+app.get("/", (req, res) => {
+  res.send("Feature Flag Engine is running");
+});
+
+
 app.post("/features", async (req, res) => {
   try {
     const { key, defaultEnabled, description } = req.body;
@@ -38,4 +43,20 @@ app.get("/evaluate/:key", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+app.post("/overrides", async (req, res) => {
+  try {
+    const { featureKey, level, referenceId, enabled } = req.body;
+
+    await overrideRepo.create(featureKey, level, referenceId, enabled);
+
+    res.json({ message: "Override created" });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+
+app.listen(3000, () => console.log("Server running on port 3000"));app.listen(3000, "0.0.0.0", () =>
+  console.log("Server running on port 3000")
+);
+
